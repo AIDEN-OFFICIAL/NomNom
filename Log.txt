@@ -1,0 +1,10 @@
+THIS FILE IS USED TO STORE THE OMPLETE LOG OF MY PROJECT ON A DILY BASIS
+16/07/2025:
+leraning materialized ui and shadcn:
+Mui.com
+shadCn
+
+19/07/2025
+doing the api integration using swiggy api  
+tried to fetch but failed
+trying to create mock datasets

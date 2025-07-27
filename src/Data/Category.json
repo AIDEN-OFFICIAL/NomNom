@@ -1,0 +1,14 @@
+{   
+   "Biriyani" : ["Biriyani","Kerala","Tandoor","Arabian","South Indian"],
+    "Burger" : ["Cafe","Burgers","Fast Food","Snacks"],
+    "Rolls" : ["Rolls","Indian","Shawarma","Snacks","Mexican"],
+    "Parotta" : ["South Indian","Parotta"],
+    "Noodles" : ["Chinese","Noodles"],
+    "Tandoor" : ["Tandoor","Chettinad"],
+    "Pizza" : ["Pizza","Italian","Continental"],
+    "Fast Food" : ["Fast Food","Tandoor"],
+    "Shake" : ["Desserts","Cafe","Bakery","Ice Cream", "Shake","Beverages"],
+    "Shawarma" : ["Shawarma","Tandoor","Lebanese","Arabian"],
+    "Pasta" : ["Sweets","Chaat"],
+    "Paratha" : ["Shawarma","Tandoor","Lebanese","Arabian"]
+}

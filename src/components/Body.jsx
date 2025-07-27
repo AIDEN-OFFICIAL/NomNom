@@ -1,4 +1,8 @@
 import { Card } from "./Card"
+import mockData from '../Data/Mock.json'
+import { useEffect, useState } from "react"
+import { Carousel } from "./Carousel"
+import Cat from '../Data/Category.json'
 
 /*body:{
 search
@@ -12,21 +16,58 @@ buynow button
 }
 }*/
 export const Body = () => {
+  const [data, setData] = useState([])
+  const [visibleCount, setVisibleCount] = useState(12);
+  const [category, setCategory] = useState('All');
+  //make this dynamic 
+    useEffect(() => {
+    const fetchData = async () => {
+      const formated = mockData?.data?.cards || [];
+      const filtered = formated.filter(x => {
+        if (x?.card?.card?.['@type'] == 'type.googleapis.com/swiggy.presentation.food.v2.Restaurant')
+          return x?.card
+      })
+      const filetrByCat = filtered.filter((x) => {
+        if (category == 'All')return true
+          for (let elem of Cat[category]) {
+            if (x?.card?.card?.info?.cuisines.includes(elem)) {
+             return x
+           }
+          }
+        })
+      setData(filetrByCat)
+      }
+      console.log(category);
+      
+    fetchData()
+  },[category])
   return (
-    <div className="Body mx-32 mt-5 ">
+
+    <div className="Body mx-32 mt-3  ">
       <div className="Search">
         <input></input>
       </div>
-      <div className="Restaurant_container grid grid-cols-4 gap-4">
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
+      <Carousel set={setCategory} val={category} />
+      <hr className='mt-10 mb-0 w-[98%] text-gray-300'></hr>
+
+      <div className="Restaurant_container grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 ">
+        {data.slice(0,visibleCount).map(x => {
+          // {console.log(x?.card?.card?.info?.name)}
+          console.log(visibleCount,)
+         return <Card resData={ x?.card?.card?.info} key={x?.card?.card?.info?.id}/>
+        }) 
+        }
       </div>
+            {visibleCount < data.length && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={()=>setVisibleCount(prev=>prev+12)}
+            className="bg-gray-400 text-white px-6 py-2 rounded-full hover:bg-gray-800 transition"
+          >
+            Show More ↓
+          </button>
+        </div>
+      )}
     </div>
   )
 }
