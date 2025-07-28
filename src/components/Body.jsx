@@ -3,6 +3,7 @@ import mockData from '../Data/Mock.json'
 import { useEffect, useState } from "react"
 import { Carousel } from "./Carousel"
 import Cat from '../Data/Category.json'
+import  Filter from "./Filter"
 
 /*body:{
 search
@@ -19,6 +20,7 @@ export const Body = () => {
   const [data, setData] = useState([])
   const [visibleCount, setVisibleCount] = useState(12);
   const [category, setCategory] = useState('All');
+  const [filter, setFilter] = useState('All');
   //make this dynamic 
     useEffect(() => {
     const fetchData = async () => {
@@ -49,7 +51,7 @@ export const Body = () => {
       </div>
       <Carousel set={setCategory} val={category} />
       <hr className='mt-10 mb-0 w-[98%] text-gray-300'></hr>
-
+      <Filter/>
       <div className="Restaurant_container grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 ">
         {data.slice(0,visibleCount).map(x => {
           // {console.log(x?.card?.card?.info?.name)}
