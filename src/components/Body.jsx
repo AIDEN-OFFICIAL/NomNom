@@ -1,5 +1,6 @@
 import { Card } from "./Card"
 import mockData from '../Data/Mock.json'
+import cat from '../Data/Category.json'
 import { useEffect, useState } from "react"
 import { Carousel } from "./Carousel"
 import Cat from '../Data/Category.json'
@@ -29,9 +30,24 @@ export const Body = () => {
           // https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6126255&lng=77.04108959999999&page_type=DESKTOP_WEB_LISTING
           // setData(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
           // console.log(restaurants)
-          setData(restaurants);
+          if (category == 'All') {
+            setData(restaurants);
+            return
+          } else {
+            // let ins=restaurants?.card?.card?.cuisines.map(x => {
+            //   return cat.category.includes(x)
+            // })
+            let allowedCusines = cat[category]
+            let filteredRes = restaurants.filter(x => {
+              const cuisines = x?.card?.card?.info?.cuisines || []
+              return cuisines.some(x => allowedCusines.includes(x))
+            })
+            console.log("catogory selected",filteredRes)
+            setData(filteredRes)
+            }
         
-        }
+        
+    }
     // const fetchData = async () => {
     //   const formated = mockData?.data?.cards || [];
     //   const filtered = formated.filter(x => {
