@@ -8,7 +8,8 @@ app.use(cors());
 app.get('/api/swiggy', async (req, res) => {
   try {
     const swiggyURL =
-      'https://www.swiggy.com/mapi/restaurants/list/v5?lat=9.9406&lng=76.2653&collection=83633&tags=layout_CCS_NorthIndian&sortBy=&filters=&type=rcv2&offset=0&carousel=true&third_party_vendor=1';
+      'https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=9.94060&lng=76.26530&carousel=true&third_party_vendor=1';
+      // 'https://www.swiggy.com/mapi/restaurants/list/v5?lat=9.9406&lng=76.2653&collection=83633&tags=layout_CCS_NorthIndian&sortBy=&filters=&type=rcv2&offset=0&carousel=true&third_party_vendor=1';
 
     const response = await fetch(swiggyURL, {
       headers: {

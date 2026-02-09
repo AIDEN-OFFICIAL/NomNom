@@ -11,18 +11,20 @@ import { IMAGE_URL } from "../utils/utils"
 
 
 export const Card = ({ resData}) => {
-  console.log(resData.aggregatedDiscountInfoV3)
+  if (!resData) return null;
+  // console.log(\resData?.aggregatedDiscountInfoV3)
   const {
     header,
     subHeader,
   } = resData?.aggregatedDiscountInfoV3 || {}
+
   const {
     sla,
     avgRating,
     name,
     cuisines,
     areaName
-  }= resData
+  } = resData 
   return (
     
     <div className="Card  w-55 h-6 rounded-2xl mb-50 mt-10 hover:border-7 border-solid border-white ">
