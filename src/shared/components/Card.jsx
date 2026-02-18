@@ -7,7 +7,7 @@ buynow button
 }
 */
 
-import { IMAGE_URL } from "../utils/utils"
+import { IMAGE_URL } from "../../utils/utils"
 
 
 export const Card = ({ resData}) => {

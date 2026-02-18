@@ -1,9 +1,8 @@
 import { Card } from "./Card"
-import mockData from '../Data/Mock.json'
-import cat from '../Data/Category.json'
+import mockData from '../../Data/Mock.json'
+import cat from '../../Data/Category.json'
 import { useEffect, useState } from "react"
 import { Carousel } from "./Carousel"
-import Cat from '../Data/Category.json'
 import  Filter from "./Filter"
 
 /*body:{
@@ -21,7 +20,7 @@ export const Body = () => {
   const [data, setData] = useState([])
   const [visibleCount, setVisibleCount] = useState(12);
   const [category, setCategory] = useState('All');
-  const [filter, setFilter] = useState('All');
+  // const [filter, setFilter] = useState('All');
   //make this dynamic 
   useEffect(() => {
         const fetchData = async () => {

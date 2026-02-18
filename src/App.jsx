@@ -1,6 +1,6 @@
-import { Body } from "./components/Body"
-import { Footer } from "./components/Footer"
-import { Header } from "./components/Header"
+import { Body } from "./shared/components/Body"
+import { Footer } from "./shared/components/Footer"
+import { Header } from "./shared/components/Header"
 
 function App() {
   
