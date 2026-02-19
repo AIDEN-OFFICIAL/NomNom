@@ -1,7 +1,6 @@
-import React from 'react'
 
 export const Carousel = ({ set, val }) => {
-    // console.log(val);
+    console.log(val);
     
   return (
     <div className='w-[98%] carousel mt-18 flex overflow-x-auto whitespace-nowrap scrollbar-hide'>

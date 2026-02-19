@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { LuSettings2 } from "react-icons/lu";
 
 const filterOptions = [
